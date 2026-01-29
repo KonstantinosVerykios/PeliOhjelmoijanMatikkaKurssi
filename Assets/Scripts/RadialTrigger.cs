@@ -6,7 +6,7 @@ using UnityEngine;
 
 public class Triggers : MonoBehaviour
 {
-    [Range(5f, 20f)]
+    [Range(4f, 10f)]
     public float Radius = 1f;
 
     // If the range is -1 the enemy can see behind him
@@ -55,11 +55,21 @@ public class Triggers : MonoBehaviour
             Drawing.DrawVector(to_lookAt, transform.position, Color.white, 3f, true);
         }
 
-        // The angle we can get from Mathf.arcos
-        LookingAngle = Mathf.Acos(EnemyFOV);
+        // The angle we can get from Mathf.arcos // Mathf.Acos(EnemyFOV); = Radians
+        LookingAngle = Mathf.Rad2Deg*Mathf.Acos(EnemyFOV);
+        Quaternion rotator = Quaternion.AngleAxis(LookingAngle, Vector3.up);
+
+        // The right edge of the enemys FOV
+        Vector3 look_at_rotated = rotator * to_lookAt;
+        Drawing.DrawVector(look_at_rotated, transform.position, Color.blue, 3f, true);
 
 
+        // The left edge of the enemys FOV by inverting look_at_rotated
+        look_at_rotated = Quaternion.Inverse(rotator) * to_lookAt;
+        Drawing.DrawVector(look_at_rotated, transform.position, Color.blue, 3f, true);
 
+        // Creates a wirearc form the left edges point to the center* 2
+        Handles.DrawWireArc(transform.position, Vector3.up, look_at_rotated, LookingAngle * 2, to_lookAt.magnitude);
     }
 
     public bool InRange()
