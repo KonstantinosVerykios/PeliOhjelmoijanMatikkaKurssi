@@ -353,13 +353,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ScreenWidth: 1384
-  ScreenHeight: 736
+  ScreenHeight: 770
   ScreenPosition: {x: 185, y: 171, z: 0}
-  Percentage: 23
+  Percentage: 41
   HealthBarWidth: 296
   HealthBarHeight: 43
-  HealthOffsetX: 45
-  HealthOffsetY: 57
+  HealthOffsetX: 20
+  HealthOffsetY: 20
   Debug: 1
 --- !u!1660057539 &9223372036854775807
 SceneRoots:

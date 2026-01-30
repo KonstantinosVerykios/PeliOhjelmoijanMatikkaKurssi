@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class Drawing : MonoBehaviour
 {
-    public static void DrawVector(Vector3 vec, Vector3 pos, Color originalColor, float thickness = 0.0f, bool active = true)
+    public static void DrawVector(Vector3 vec, Vector3 pos, Color originalColor, float thickness = 5.0f, bool active = true)
     {
         if (!active)
         {
@@ -24,7 +24,7 @@ public class Drawing : MonoBehaviour
 
         //Draw the arrow head
         Vector3 n = vec.normalized;
-        Handles.ConeHandleCap(0, vec + pos - 0.35f * n, Quaternion.LookRotation(vec), 0.5f, EventType.Repaint);
+        Handles.ConeHandleCap(0, vec + pos - 0.35f * n, Quaternion.LookRotation(vec), 3f, EventType.Repaint);
 
     }
 

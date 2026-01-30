@@ -1,3 +1,4 @@
+using JetBrains.Annotations;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
@@ -13,7 +14,7 @@ public class Triggers : MonoBehaviour
     [Range(-1f, 1f)]
     public float EnemyFOV = 0.7f;
 
-    public float LookingAngle;
+    private float LookingAngle;
 
     public GameObject Target;
     public GameObject LookAt;
@@ -26,6 +27,8 @@ public class Triggers : MonoBehaviour
 
     private void OnDrawGizmos()
     {
+        SetYZero(LookAt);
+        SetYZero(Target);
 
         bool in_range = InRange();
         if (in_range)
@@ -70,6 +73,10 @@ public class Triggers : MonoBehaviour
 
         // Creates a wirearc form the left edges point to the center* 2
         Handles.DrawWireArc(transform.position, Vector3.up, look_at_rotated, LookingAngle * 2, to_lookAt.magnitude);
+
+
+        // WEEK ASSIGNMENT
+
     }
 
     public bool InRange()
@@ -97,17 +104,10 @@ public class Triggers : MonoBehaviour
 
     }
 
-    // Start is called before the first frame update
-    void Start()
+    public void SetYZero(GameObject obj)
     {
-        
+        Vector3 pos = obj.transform.position;
+        pos.y = 0f;
+        obj.transform.position = pos;
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
-    
 }
