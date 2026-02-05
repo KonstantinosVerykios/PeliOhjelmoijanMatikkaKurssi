@@ -198,7 +198,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Radius: 12
-  EnemyFOV: 0.82
+  EnemyFOV: 0.64
   ConeHeight: 4.1
   Target: {fileID: 1724619447}
   LookAt: {fileID: 425789565}
