@@ -24,7 +24,7 @@ public class Drawing : MonoBehaviour
 
         //Draw the arrow head
         Vector3 n = vec.normalized;
-        Handles.ConeHandleCap(0, vec + pos - 0.35f * n, Quaternion.LookRotation(vec), 3f, EventType.Repaint);
+        Handles.ConeHandleCap(0, vec + pos - 0.35f * n, Quaternion.LookRotation(vec), 0.5f, EventType.Repaint);
 
     }
 
