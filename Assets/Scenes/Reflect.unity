@@ -273,7 +273,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   VectorScale: 4.23
   Debug: 0
-  Bounces: 56
+  Bounces: 20
 --- !u!1 &539279762
 GameObject:
   m_ObjectHideFlags: 0
