@@ -13,8 +13,6 @@ public class BezierExample : MonoBehaviour
 
     [Range(0f, 1f)]
     public float T = 0.0f;
-    
-
 
     private void OnDrawGizmos()
     {
@@ -65,7 +63,7 @@ public class BezierExample : MonoBehaviour
 
 
         // Draw the Bezier with unity function
-
         Handles.DrawBezier(a, d, b, c, Color.yellow, null, 3f);
+
     }
 }

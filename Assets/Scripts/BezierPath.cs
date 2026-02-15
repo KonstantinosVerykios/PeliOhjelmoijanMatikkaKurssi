@@ -11,6 +11,7 @@ public class BezierPath : MonoBehaviour
     [Range (0f, 1f), Tooltip("T-value for the whole path (global)")]
     public float GlobalT = 0.0f;
 
+    public bool ClosePath;
     
     private void OnDrawGizmos()
     {
@@ -18,15 +19,23 @@ public class BezierPath : MonoBehaviour
 
         for (int i = 0; i < segments; i++)
         {
-            Handles.DrawBezier(Points[i].GetAnchorPoint(), Points[i + 1].GetAnchorPoint(), Points[i].GetControlEnd(), Points[i+1].GetControlStart(), Color.magenta, null, 3f);
+            Handles.DrawBezier(
+                Points[i].GetAnchorPoint(), 
+                Points[i + 1].GetAnchorPoint(), 
+                Points[i].GetControlEnd(), 
+                Points[i+1].GetControlStart(), Color.magenta, null, 3f);
+
+            if (ClosePath)
+            {
+                Handles.DrawBezier(Points[segments].GetAnchorPoint(), 
+                    Points[0].GetAnchorPoint(), 
+                    Points[segments].GetControlEnd(), 
+                    Points[0].GetControlStart(), Color.magenta, null, 3f);
+            }
         }
 
         int startIndex = (int)(GlobalT * segments);
         Debug.Log("startIndex: " + startIndex);
-
-        //float t_per_segment = 1.0f / segments;
-        //int startIndex = (int)(GlobalT / t_per_segment);
-        //Debug.Log("Start index: " + segments);
 
         if(startIndex == segments)
         {

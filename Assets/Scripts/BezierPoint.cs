@@ -31,6 +31,9 @@ public class BezierPoint : MonoBehaviour
         Vector3 sPoint = ControlStart.transform.position;
         Vector3 ePoint = ControlEnd.transform.position;
 
+        // Force the EndPoint to be the mirror of the StartPoint
+        ControlEnd.transform.position = aPoint - (sPoint - aPoint);
+
         Gizmos.color = Color.red;
         Gizmos.DrawSphere(aPoint, 0.05f);
 
@@ -42,6 +45,8 @@ public class BezierPoint : MonoBehaviour
         Handles.color = Color.white;
         Handles.DrawLine(aPoint, sPoint);
         Handles.DrawLine(aPoint, ePoint);
+
+
     }
 
 }
