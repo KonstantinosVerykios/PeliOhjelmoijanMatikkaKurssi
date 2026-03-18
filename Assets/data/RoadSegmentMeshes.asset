@@ -21,10 +21,10 @@ MonoBehaviour:
     u: 0.8
   - point: {x: 5, y: 1}
     normal: {x: 0, y: 0}
-    u: 0.9
+    u: 1
   - point: {x: 7, y: 1}
     normal: {x: 0, y: 0}
-    u: 0.9
+    u: 1
   - point: {x: 7, y: 1}
     normal: {x: 0, y: 0}
     u: 1
@@ -33,31 +33,31 @@ MonoBehaviour:
     u: 1
   - point: {x: 7, y: -1}
     normal: {x: 0, y: 0}
-    u: 0.1
+    u: 1
   - point: {x: -7, y: -1}
     normal: {x: 0, y: 0}
-    u: 0.1
+    u: 0
   - point: {x: -7, y: -1}
     normal: {x: 0, y: 0}
-    u: 0.2
+    u: 1
   - point: {x: -7, y: 1}
     normal: {x: 0, y: 0}
-    u: 0.2
+    u: 1
   - point: {x: -7, y: 1}
     normal: {x: 0, y: 0}
-    u: 0.2
+    u: 1
   - point: {x: -5, y: 1}
     normal: {x: 0, y: 0}
-    u: 0.2
+    u: 1
   - point: {x: -5, y: 1}
     normal: {x: 0, y: 0}
     u: 0.1
   - point: {x: -3, y: 0}
     normal: {x: 0, y: 0}
-    u: 0.1
+    u: 0.2
   - point: {x: -3, y: 0}
     normal: {x: 0, y: 0}
     u: 0.8
   - point: {x: 3, y: 0}
     normal: {x: 0, y: 0}
-    u: 0.8
+    u: 0.2
