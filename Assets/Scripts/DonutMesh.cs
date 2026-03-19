@@ -21,6 +21,7 @@ public class DonutMesh : MonoBehaviour
     List<Vector3> vertices = new List<Vector3>();
     List<int> tri_Indices = new List<int>();
 
+    private List<Vector2> UVs = new List<Vector2>();
 
     private void GenerateDonutMesh()
     {
@@ -33,6 +34,7 @@ public class DonutMesh : MonoBehaviour
 
         vertices.Clear();
         tri_Indices.Clear();
+        UVs.Clear();
 
         float deltaAngle = 2.0f * Mathf.PI / Segments;
 
@@ -45,6 +47,10 @@ public class DonutMesh : MonoBehaviour
 
             vertices.Add(new Vector3(x * InnerRadius, y * InnerRadius, 0));
             vertices.Add(new Vector3(x * (InnerRadius + Thickness), y * (InnerRadius + Thickness), 0));
+
+            UVs.Add(new Vector2(0, 0));
+            UVs.Add(new Vector2((x+1f)/2, (y+1f)/2));
+
         }
 
 
@@ -70,6 +76,7 @@ public class DonutMesh : MonoBehaviour
         mesh.SetVertices(vertices);
         mesh.SetTriangles(tri_Indices, 0);
         mesh.RecalculateNormals();
+        mesh.SetUVs(0, UVs);
 
         
         GetComponent<MeshFilter>().sharedMesh = mesh;
