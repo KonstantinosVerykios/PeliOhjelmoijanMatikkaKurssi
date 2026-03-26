@@ -3,6 +3,8 @@ Shader "Unlit/DebugUvs"
     Properties
     {
         _MainTex ("Texture", 2D) = "white" {}
+        //Textuuri
+        //Aallon amplitudi
     }
     SubShader
     {
@@ -36,10 +38,21 @@ Shader "Unlit/DebugUvs"
 
             sampler2D _MainTex;
             float4 _MainTex_ST;
+            //Muuttujat pitä tässä myös tuoda shaderille samalla nimellä
 
             // Vertex shader part of the code so x,y,z,w
             v2f vert (appdata v)
             {
+                // Vertex : POSITION manipuloimalla (xyz) saadaan liike
+                // hae x
+                // hae y
+
+                // hae vektorin magnitudi
+                // hae verteksin kulma 
+                // laske aalto
+
+
+
                 v2f o;
                 o.vertex = UnityObjectToClipPos(v.vertex);
                 o.uv = TRANSFORM_TEX(v.uv, _MainTex);
