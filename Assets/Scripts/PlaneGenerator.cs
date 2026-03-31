@@ -17,14 +17,20 @@ public class PlaneGenerator : MonoBehaviour
     public int Segments = 10;
 
     [Header("Perlin Noise Modifiers")]
-    [Range(0.0f, 5f)]
-    public float PerlinNoiseAmplitude = 1f;
-    [Range(0.0f, 1f)]
-    public float Density = 1.0f;
+    public List<PerlinNoise> NoiseModifiers = new List<PerlinNoise>();
 
     private List<Vector3> Vertices = new List<Vector3>();
     private List<int> Triangles = new List<int>();
     private List<Vector3> UV = new List<Vector3>();
+
+    [System.Serializable]
+    public class PerlinNoise
+    {
+        [Range(0f, 5f)]
+        public float Density;
+        [Range(0f, 5f)]
+        public float Amplitude;
+    }
 
     private void GeneratePlane()
     {
@@ -43,6 +49,7 @@ public class PlaneGenerator : MonoBehaviour
         Triangles.Clear();
         UV.Clear();
 
+        
 
         //Create and add the vertices to the vertices list
         float delta = Size / Segments;
@@ -54,7 +61,16 @@ public class PlaneGenerator : MonoBehaviour
                 float x = i * delta;
                 float z = j * delta;
 
-                Vertices.Add(new Vector3(x, PerlinNoiseAmplitude * Mathf.PerlinNoise(Density * x, Density * z), z));
+                float height = 0f;
+
+                // Handle all the created perlin noises
+                foreach (PerlinNoise noise in NoiseModifiers)
+                {
+                    height += noise.Amplitude * Mathf.PerlinNoise(noise.Density * x, noise.Density * z);
+                }
+                // OLD CODE: Vertices.Add(new Vector3(x, totalAmplitude * Mathf.PerlinNoise(totalDensity * x, totalDensity * z), z));
+                Vertices.Add(new Vector3(x, height, z));
+
                 UV.Add(new Vector3(x / Size, z / Size));
             }
         }
