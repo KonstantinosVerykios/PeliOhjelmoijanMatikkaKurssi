@@ -126,11 +126,11 @@ public class PoissonDiscSamplingMulti : MonoBehaviour
 
                 Vector3 origin = new Vector3(point.x, 0, point.y);
 
+                
+
                 if (Physics.Raycast(origin, Vector3.down, out hit, Mathf.Infinity))
                 {
-
-
-                    Debug.DrawRay(origin, Vector3.down * hit.distance);
+                    
                     GameObject obje = Instantiate(PoissonParams[i].ObjectToSpawn, hit.point, Quaternion.identity, spawnParent);
                 }
             }
@@ -176,8 +176,6 @@ public class PoissonDiscSamplingMulti : MonoBehaviour
                                 if (!toRemove.Contains(m))
                                     toRemove.Add(m);
                             }
-
-                            
                         }
                     }
                 }
@@ -202,7 +200,7 @@ public class PoissonDiscSamplingMulti : MonoBehaviour
             for (int j = 0; j < points.Count; j++)
             {
                 //Handles.DrawWireDisc(new Vector3(points[j].x, 0, points[j].y), Vector3.up, 0.5f * PoissonParams[i].Radius);
-                Gizmos.DrawSphere(new Vector3(points[j].x, 0, points[j].y), PoissonParams[i].Radius * 0.1f);
+                //Gizmos.DrawSphere(new Vector3(points[j].x, 0, points[j].y), PoissonParams[i].Radius * 0.1f);
             }
         }
     }

@@ -5,6 +5,7 @@ using System.Net.NetworkInformation;
 using Unity.VisualScripting;
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Triggers : MonoBehaviour
 {
@@ -27,6 +28,9 @@ public class Triggers : MonoBehaviour
 
     private Vector3 to_target;
     private Vector3 to_lookAt;
+
+    public Text TextScore;
+    public int Score;
 
     
 
@@ -118,7 +122,6 @@ public class Triggers : MonoBehaviour
         Handles.DrawLine(origin + up, origin + right + up);
         //Handles.DrawLine(origin + left + up, origin + right + up);
         Handles.DrawWireArc(origin + up, Vector3.up, look_at_rotated, LookingAngle * 2, forward.magnitude); ;
-
     }
 
     public bool InRange()
@@ -128,8 +131,11 @@ public class Triggers : MonoBehaviour
         // Make the plane flat so everything is on y = 0
 
         // If the vector is smaller then the radius the player is inside the radius
-        if(to_target.magnitude < Radius)
+        if (to_target.magnitude < Radius)
+        {
+            Debug.Log("LETS GOOOOOOOOOOOOOOOOOOOOOOOOOOOO!!!!!!!!!!!!!!!");
             return true;
+        }
         else
             return false;
     }
