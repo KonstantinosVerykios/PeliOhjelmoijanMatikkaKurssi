@@ -10,7 +10,7 @@ public class PlaneGenerator : MonoBehaviour
 
     public bool DEBUG = false;
 
-    [Range(10f, 100f)]
+    [Range(10f, 200f)]
     public float Size = 10f;
 
     [Range(10, 100)]
